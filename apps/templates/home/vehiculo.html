@@ -1,0 +1,371 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Vehículo {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="content">
+	<div class="page-inner">
+		<div class="page-header">
+			<h4 class="page-title">Vehículo </h4>
+			<ul class="breadcrumbs">
+				<li class="nav-home">
+					<a href="/index.html">
+						<i class="flaticon-home"></i>
+					</a>
+				</li>
+				<li class="separator">
+					<i class="flaticon-right-arrow"></i>
+				</li>
+				<li class="nav-item">
+					<a href="#">Vehículos</a>
+				</li>
+				<li class="separator">
+					<i class="flaticon-right-arrow"></i>
+				</li>
+				<li class="nav-item">
+					<a href="#">Vehículo</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="page-category">
+			<form>
+
+				<div class="card card-post card-round">
+					<div class="card-header">
+						<div class="card-title">Ficha de vehículo</div>
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="form-group">
+								<label class="form-label">Marca</label>
+								<div class="selectgroup w-100">
+									<div class="row">
+										<label class="selectgroup-item">
+											<input type="radio" name="value" value="50" class="selectgroup-input">
+											<span class="selectgroup-button">
+												<img src="/static/assets/img/marcas/logoChevrolet.svg" alt="..."
+													class="contain">
+											</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="value" value="50" class="selectgroup-input">
+											<span class="selectgroup-button">
+												<img src="/static/assets/img/marcas/logoRenault.svg" alt="..."
+													class="contain">
+											</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="value" value="100" class="selectgroup-input">
+											<span class="selectgroup-button">
+												<img src="/static/assets/img/marcas/logoBenelli.svg" alt="..."
+													class="contain">
+											</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="value" value="150" class="selectgroup-input">
+											<span class="selectgroup-button">
+												<img src="/static/assets/img/marcas/logoBmw.svg" alt="..."
+													class="contain">
+											</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="value" value="200" class="selectgroup-input">
+											<span class="selectgroup-button">
+												<img src="/static/assets/img/marcas/logoFord.svg" alt="..."
+													class="contain">
+											</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="value" value="200" class="selectgroup-input">
+											<span class="selectgroup-button">
+												<img src="/static/assets/img/marcas/logoVolkswagen.svg" alt="..."
+													class="contain">
+											</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="value" value="200" class="selectgroup-input">
+											<span class="selectgroup-button">
+												<img src="/static/assets/img/marcas/logoHonda.svg" alt="..."
+													class="contain">
+											</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="value" value="200" class="selectgroup-input">
+											<span class="selectgroup-button">
+												<img src="/static/assets/img/marcas/logoJeep.svg" alt="..."
+													class="contain">
+											</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="value" value="200" class="selectgroup-input">
+											<span class="selectgroup-button">
+												<img src="/static/assets/img/marcas/logoGreatWall.svg" alt="..."
+													class="contain">
+											</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="value" value="200" class="selectgroup-input">
+											<span class="selectgroup-button">
+												<img src="/static/assets/img/marcas/logoDodge.svg" alt="..."
+													class="contain">
+											</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+					<div class="separator-solid"></div>
+
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group form-floating-label">
+								<input id="placa" type="text" class="form-control input-border-bottom"
+									autocapitalize=characters>
+								<label for="placa" class="placeholder">Placa</label>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group form-floating-label">
+								<input id="telefonoContacto" type="number" class="form-control input-border-bottom"
+									required="">
+								<label for="telefonoContacto" class="placeholder">Teléfono de contacto</label>
+							</div>
+						</div>
+						<div class="col-md3">
+							<div class="form-group form-floating-label">
+								<input id="propietario" type="text" class="form-control input-border-bottom"
+									required="">
+								<label for="propietario" class="placeholder">Propietario</label>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+					<div class="row">
+						<div class="col-md-3">
+							<div class="form-group form-floating-label">
+								<select class="form-control input-border-bottom" id="modelo">
+									<option></option>
+									<option>Modelo 1</option>
+									<option>Modelo 2</option>
+									<option>Modelo 3</option>
+								</select>
+								<label for="modelo" class="placeholder">Modelo:</label>
+							</div>
+							<div class="form-group">
+								<label for="smallSelect">Small Select</label>
+								<select class="form-control form-control-sm" id="smallSelect">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+
+
+
+
+							<br>
+							<div class="form-group form-floating-label">
+								<input id="anio" type="number" class="form-control input-border-bottom">
+								<label for="anio" class="placeholder">Año</label>
+							</div>
+							<br>
+							<div class="form-group form-floating-label">
+								<input id="kilometraje" type="number" class="form-control input-border-bottom">
+								<label for="kilometraje" class="placeholder">Kilometraje</label>
+							</div>
+							<label class="form-label">Color:</label>
+							<div class="row gutters-xs">
+								<div class="col-auto">
+									<label class="colorinput">
+										<input name="color" type="checkbox" value="dark" class="colorinput-input">
+										<span class="colorinput-color bg-success"></span>
+									</label>
+								</div>
+								<div class="col-auto">
+									<label class="colorinput">
+										<input name="color" type="checkbox" value="primary" class="colorinput-input">
+										<span class="colorinput-color bg-primary"></span>
+									</label>
+								</div>
+								<div class="col-auto">
+									<label class="colorinput">
+										<input name="color" type="checkbox" value="secondary" class="colorinput-input">
+										<span class="colorinput-color bg-secondary"></span>
+									</label>
+								</div>
+								<div class="col-auto">
+									<label class="colorinput">
+										<input name="color" type="checkbox" value="info" class="colorinput-input">
+										<span class="colorinput-color bg-info"></span>
+									</label>
+								</div>
+								<div class="col-auto">
+									<label class="colorinput">
+										<input name="color" type="checkbox" value="info" class="colorinput-input">
+										<span class="colorinput-color bg-info"></span>
+									</label>
+								</div>
+								<div class="col-auto">
+									<label class="colorinput">
+										<input name="color" type="checkbox" value="info" class="colorinput-input">
+										<span class="colorinput-color bg-info"></span>
+									</label>
+								</div>
+								<div class="col-auto">
+									<label class="colorinput">
+										<input name="color" type="checkbox" value="info" class="colorinput-input">
+										<span class="colorinput-color bg-info"></span>
+									</label>
+								</div>
+								<div class="col-auto">
+									<label class="colorinput">
+										<input name="color" type="checkbox" value="info" class="colorinput-input">
+										<span class="colorinput-color bg-info"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group form-floating-label">
+								<input id="precio" type="number" class="form-control input-border-bottom">
+								<label for="precio" class="placeholder">Precio</label>
+							</div>
+							<div class="form-group">
+								<label class="form-label">Equipamiento</label>
+								<div class="selectgroup selectgroup-pills">
+									<label class="selectgroup-item">
+										<input type="checkbox" name="value" value="A/C" class="selectgroup-input">
+										<span class="selectgroup-button">A/C</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="value" value="ABS" class="selectgroup-input">
+										<span class="selectgroup-button">ABS</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="value" value="Vidrios eléctricos"
+											class="selectgroup-input">
+										<span class="selectgroup-button">Vidrios eléctricos</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="value" value="Gasolina" class="selectgroup-input">
+										<span class="selectgroup-button">Gasolina</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="value" value="T/M" class="selectgroup-input">
+										<span class="selectgroup-button">T/M</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="value" value="Airbag" class="selectgroup-input">
+										<span class="selectgroup-button">Airbag</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="value" value="T/A" class="selectgroup-input">
+										<span class="selectgroup-button">T/A</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="value" value="C/S" class="selectgroup-input">
+										<span class="selectgroup-button">C/S</span>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+
+
+								<div class="separator-solid"></div>
+
+								<label class="form-label">Servicios requeridos</label>
+								<div class="selectgroup selectgroup-pills">
+									<label class="selectgroup-item">
+										<input type="checkbox" name="detailing" value="si" class="selectgroup-input">
+										<span class="selectgroup-button">Detailing</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="lavado" value="si" class="selectgroup-input">
+										<span class="selectgroup-button">Lavado</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="reparacion" value="si" class="selectgroup-input">
+										<span class="selectgroup-button">Reparación mecánica</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="pintura" value="si" class="selectgroup-input">
+										<span class="selectgroup-button">Pintura</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="abc" value="si" class="selectgroup-input">
+										<span class="selectgroup-button">ABC</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="legales" value="si" class="selectgroup-input">
+										<span class="selectgroup-button">Servicios legales</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="enllantado" value="si" class="selectgroup-input">
+										<span class="selectgroup-button">Enllantado</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="accesorios" value="si" class="selectgroup-input">
+										<span class="selectgroup-button">Accesorios</span>
+									</label>
+									<label class="selectgroup-item">
+										<input type="checkbox" name="aireAcondicionado" value="si"
+											class="selectgroup-input">
+										<span class="selectgroup-button">Revisión / Carga A/C</span>
+									</label>
+								</div>
+
+								<div class="separator-solid"></div>
+
+								<div class="form-group">
+									<label for="exampleFormControlFile1">Cargar fotos</label>
+									<input type="file" class="form-control-file" id="exampleFormControlFile1" multiple>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+		</div>
+
+
+		<div class="row">
+
+
+			<div class="col-md-6">
+
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Check me out</label>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

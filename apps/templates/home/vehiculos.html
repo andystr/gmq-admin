@@ -1,0 +1,406 @@
+{% extends "layouts/base.html" %}
+{% block title %} Vehículos {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/assets/css/custom.css">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="content">
+	<div class="page-inner">
+		<div class="page-header">
+			<h4 class="display-4">Vehículos </h4>
+			<ul class="breadcrumbs">
+				<li class="nav-home">
+					<a href="/index.html">
+						<i class="flaticon-home"></i>
+					</a>
+				</li>
+				<li class="separator">
+					<i class="flaticon-right-arrow"></i>
+				</li>
+				<li class="nav-item">
+					<a href="#">Vehículos</a>
+				</li>
+				<li class="nav-home">
+					<a href="/vehiculo.html">
+						<i class="flaticon-home"></i>
+					</a>
+				</li>
+			</ul>
+
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-lg-3">
+				<div class="card p-3">
+					<div class="d-flex align-items-center">
+						<span class="stamp stamp-md bg-primary mr-3">
+							<i class="fas fa-car-side"></i>
+						</span>
+						<div>
+							<h5 class="mb-1"><b><a href="#">132 <small>Disponibles</small></a></b></h5>
+							<small class="text-muted">12 prospectos</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-3">
+				<div class="card p-3">
+					<div class="d-flex align-items-center">
+						<span class="stamp stamp-md bg-primary mr-3">
+							<i class="fas fa-hands-helping"></i>
+						</span>
+						<div>
+							<h5 class="mb-1"><b><a href="#">78 <small>En intermediación</small></a></b></h5>
+							<small class="text-muted">32 shipped</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-3">
+				<div class="card p-3">
+					<div class="d-flex align-items-center">
+						<span class="stamp stamp-md bg-primary mr-3">
+							<i class="far fa-eye"></i>
+						</span>
+						<div>
+							<h5 class="mb-1"><b><a href="#">12 <small>Prospectos</small></a></b></h5>
+							<small class="text-muted">163 llamadas hoy</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-3">
+				<div class="card p-3">
+					<div class="d-flex align-items-center">
+						<span class="stamp stamp-md bg-primary mr-3">
+							<i class="fas fa-wrench"></i>
+						</span>
+						<div>
+							<h5 class="mb-1"><b><a href="#">5 <small>en servicio</small></a></b></h5>
+							<small class="text-muted">16 waiting</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+		<!-- CONTENIDO -->
+
+
+
+
+
+		<div class="page-category">
+			<div class="row">
+
+				<!--Plantilla-->
+
+				{% for vehiculo in vehiculos %}
+
+				<div class="col-md-4">
+					<div class="card card-post card-round">
+						<img class="card-img-top" src="/static/assets/img/vehiculos/{{vehiculo.placa}}/1.jpg">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-2">
+									<img src="/static/assets/img/marcas/logo{{vehiculo.marca}}.svg" alt="..."
+										class="contain">
+								</div>
+								<div class="col-10">
+									<div class="h4" align="right">{{vehiculo.anio}} {{vehiculo.marca}}
+										{{vehiculo.modelo}}</div>
+									<div class="row">
+										<div class="col" align="center">
+											<p class="date text-muted" id="kilometraje"></p>
+											<script>
+												formatoKilometraje("{{vehiculo.kilometraje}},kilometraje");
+											</script>
+										</div>
+										<div class="col" align="right">
+											<span>
+												<h4 class="fw-bold" id="precioCampo"></4>
+												<script>
+													formatoMoneda("{{vehiculo.precio}},precioCampo");
+												</script>
+												
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="separator-solid"></div>
+
+							<div id="langDiv"></div>
+
+							<script>
+								equipamientoLista("{{vehiculo.equipamiento}},{{vehiculo.placa}}");
+							</script>
+
+
+
+
+
+							<div class="separator-solid"></div>
+							<div class="row">
+								<div class="col-6">
+									<div class="info-post ml-2">
+										<small class="text-muted">Servicios:&nbsp;&nbsp;</small>
+										<br>
+										<span class="fw-bold"><i class="fas fa-check-circle"></i></span>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reparación
+										<br>
+										<span class="fw-bold"><i class="fas fa-check-circle"></i></span>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pintura
+										<br>
+										<span class="fw-bold"><i class="fas fa-check-circle"></i></span>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detailing
+										<br>
+										<span class="fw-bold"><i class="fas fa-check-circle"></i></span>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lavado
+										<br>
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="info-post ml-2">
+										<small class="text-muted">Costo:&nbsp;&nbsp;</small>
+										<br>
+										<h5 class="fw-bold" align="right" id="costoCampo"></h5>
+										<script>
+											formatoMoneda("{{vehiculo.costo}},costoCampo,{{vehiculo.id}}");
+										</script>
+										
+									</div>
+									<div class="info-post ml-2">
+										<small class="text-muted">Propietario:&nbsp;&nbsp;</small>
+										<br>
+										<div align="right"><strong data-toggle="modal" data-target="#datosContactoModal{{vehiculo.id}}">{{vehiculo.idPropietario}}</strong></div>
+										<h6 tabindex="0" class="fw-bold" align="right" data-toggle="popover" data-trigger="focus" data-placement="top" data-html="true"
+											data-content="<div><a href='tel:0{{vehiculo.id}}'><button type='button' class='btn btn-icon btn-round btn-info btn-lg'><i class='fas fa-phone'></i></button></a>&nbsp;&nbsp;&nbsp;<a href='http://api.whatsapp.com/send?phone=+593{{vehiculo.telefonoPropietario}}'><button type='button' class='btn btn-icon btn-round btn-success btn-lg'href='https://api.whatsapp.com/send?phone=0987654321'><i class='fab fa-whatsapp'></i></button></a></div>">
+											0{{vehiculo.telefonoPropietario}}</h6>
+									</div>
+								</div>
+							</div>
+							<div class="separator-solid"></div>
+							<div class="row">
+								<div class="col-4" align="center">
+									<button type="button" class="btn btn-icon btn-round btn-default btn-lg">
+										<i class="fas fa-pen"></i>
+									</button>
+								</div>
+								<div class="col-4" align="center">
+									<button type="button" class="btn btn-icon btn-round btn-default btn-lg">
+										<i class="fas fa-share-alt"></i>
+									</button>
+								</div>
+								<div class="col-4" align="center">
+									<button type="button" class="btn btn-icon btn-round btn-default btn-lg">
+										<i class="fas fa-dollar-sign"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+
+
+
+			<!--Fin Plantilla-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<!-- ModalPropietario -->
+			{% for vehiculo in vehiculos %}
+			<div class="modal fade" id="datosContactoModal{{vehiculo.id}}" tabindex="-1" role="dialog" 
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">{{vehiculo.idPropietario}}</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<small>Cédula ciudadania:</small>
+							<h6>1767654328</h6>
+							<br>
+							<small>Dirección:</small>
+							<h6>Av. Galo Plaza Lasso N78-129 y Cap. Ramón Borja</h6>
+							<br>
+							<small>Teléfono:</small>
+							<h6>0{{vehiculo.telefonoPropietario}}</h6>
+						</div>
+						<div class="modal-footer">
+							<div class="col-4" align="center">
+								<button type="button" class="btn btn-icon btn-round btn-info btn-lg">
+									<i class="fas fa-pen"></i>
+								</button>
+							</div>
+							<div class="col-4" align="center">
+								<button type="button" class="btn btn-icon btn-round btn-success btn-lg">
+									<i class="fas fa-share-alt"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+
+
+			<!-- ModalCostos -->
+
+			{% for vehiculo in vehiculos %}
+			<div class="modal fade" id="datosCostosModal{{vehiculo.id}}" tabindex="-1" role="dialog" aria-labelledby="datosCostosModal"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title" id="exampleModalLongTitle">Detalle de costos {{vehiculo.marca}} {{vehiculo.placa}}</h3>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="table-responsive">
+								<table class="table table-hover table-striped table-sm">
+									<thead>
+										<tr>
+											<th width="30%">Detalle</th>
+											<th width="30%">Valor</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Precio cliente (intermediación)</td>
+											<td align="right">$ 16.087,50</td>
+										</tr>
+										<tr>
+											<td>Reparación mecánica</td>
+											<td align="right">$ 35,00</td>
+										</tr>
+										<tr>
+											<td>Chapa y pintura </td>
+											<td align="right">$ 50,00</td>
+										</tr>
+										<tr>
+											<td>Detailing</td>
+											<td align="right">$ 60,00</td>
+										</tr>
+										<tr>
+											<td>Lavado</td>
+											<td align="right">$ 2,50</td>
+										</tr>
+										<tr>
+											<td>Combustible (diesel)</td>
+											<td align="right">$ 5,00</td>
+										</tr>
+										<tr>
+											<td class="fw-bold" align="right">Total gastos:</td>
+											<td class="clearfix" align="right">$ 16.240,00</td>
+										</tr>
+										<tr>
+											<td>Comisión de venta</td>
+											<td align="right">$ 100,00</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<td class="fw-bold" align="right">Costo total</td>
+											<td class="fw-bold display-1" align="right">$ 16.340,00</td>
+										</tr>
+									</tfoot>
+								</table>
+
+							</div>
+
+
+						</div>
+						<div class="modal-footer">
+							<div class="col-4" align="center">
+								<button type="button" class="btn btn-icon btn-round btn-info btn-lg">
+									<i class="fas fa-pen"></i>
+								</button>
+							</div>
+							<div class="col-4" align="center">
+								<button type="button" class="btn btn-icon btn-round btn-success btn-lg">
+									<i class="fas fa-share-alt"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
+
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="/static/assets/js/setting-demo.js"></script>
+
+<!--<script src="/static/assets/js/demo.js"></script>-->
+{% endblock javascripts %}
